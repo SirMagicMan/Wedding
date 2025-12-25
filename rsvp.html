@@ -20,30 +20,33 @@
     <h2>We hope to see you there!</h2>
 
     <form name="rsvp" method="POST" data-netlify="true" action="success.html">
-      <label>Your Full Name</label>
-      <input type="text" name="name" required>
+  <input type="hidden" name="form-name" value="rsvp">
 
-      <label>Will you be attending?</label>
-      <select name="attending" required>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
+  <label>Your Full Name</label>
+  <input type="text" name="name" required>
 
-      <label>How many guests (including you)?</label>
-      <input type="number" name="guests" min="0" max="20" required>
+  <label>Will you be attending?</label>
+  <select name="attending" required>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+  </select>
 
-      <label>Meal Preference</label>
-      <select name="meal">
-        <option value="Chicken">Chicken</option>
-        <option value="Beef">Beef</option>
-        <option value="Vegetarian">Vegetarian</option>
-      </select>
+  <label>How many guests (including you)?</label>
+  <input type="number" name="guests" min="0" max="20" required>
 
-      <label>Notes (allergies, etc.)</label>
-      <textarea name="notes"></textarea>
+  <label>Meal Preference</label>
+  <select name="meal">
+    <option value="Chicken">Chicken</option>
+    <option value="Beef">Beef</option>
+    <option value="Vegetarian">Vegetarian</option>
+  </select>
 
-      <button type="submit">Submit RSVP</button>
-    </form>
+  <label>Notes (allergies, etc.)</label>
+  <textarea name="notes"></textarea>
+
+  <button type="submit">Submit RSVP</button>
+</form>
+
   </section>
 
 </body>
