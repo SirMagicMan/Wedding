@@ -4,30 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lukas & Hannah — Wedding</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Vibur&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Lukas & Hannah</h1>
-    <p class="date">June 14, 2026</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="rsvp.html">RSVP</a>
-    </nav>
-  </header>
+  <div class="container">
 
-  <section class="hero">
-    <h2>We're Getting Married!</h2>
-    <p>We can’t wait to celebrate with you.</p>
-  </section>
+    <!-- Header -->
+    <header>
+      <h1>Lukas & Hannah</h1>
+      <p class="date">April 2, 2026</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+      </nav>
+    </header>
 
-  <section class="info">
-    <h3>Wedding Details</h3>
-    <p>Where: <a href="https://5tranchevents.com/">5T Ranch</a></p>
-    <p>Address: <a href="https://www.google.com/maps/dir//The+5T+Ranch+Wedding+and+Event+Center,+9849+US-82,+Whitesboro,+TX+76273/@33.6505479,-97.0052433,17z/data=!4m17!1m7!3m6!1s0x864cf944b0a06aeb:0xc7a6494c075f1535!2sThe+5T+Ranch+Wedding+and+Event+Center!8m2!3d33.6505479!4d-97.0026684!16s%2Fg%2F11y624j54h!4m8!1m0!1m5!1m1!1s0x864cf944b0a06aeb:0xc7a6494c075f1535!2m2!1d-97.0027446!2d33.6505482!3e0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">9849 US-82, Whitesboro, TX 76273</a></p>
-    <p>Formal invitation with details to follow.</p>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>We're Getting Married!</h2>
+      <p>We can’t wait to celebrate with you.</p>
+    </section>
+    
+    <!-- Countdown -->
+    <section class="countdown">
+      <h3>The clock's ticking!</h3>
+      <p id="timer">Loading...</p>
+    </section>
 
+    <!-- Info Section -->
+    <section class="info">
+      <h3>Wedding Details</h3>
+      <p>Where: <a href="https://5tranchevents.com/" target="_blank">5T Ranch</a></p>
+      <p>Address: <a href="https://www.google.com/maps/dir//The+5T+Ranch+Wedding+and+Event+Center,+9849+US-82,+Whitesboro,+TX+76273" target="_blank">9849 US-82, Whitesboro, TX 76273</a></p>
+      <p>Formal invitation with details to follow.</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <h3>The Engagement</h3>
+      <div class="photos">
+        <img src="https://raw.githubusercontent.com/SirMagicMan/Wedding/01c58e466dab8285173b54a0c076a380e4b76a7d/images/Hands.jpg" alt="Hands together">
+        <img src="https://raw.githubusercontent.com/SirMagicMan/Wedding/eb666e253bda1fa530b206d1222a28f2823a0b12/images/Knee.jpg" alt="Down on one knee">
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const weddingDate = new Date("April 2, 2026 16:00:00").getTime();
+    const timer = document.getElementById("timer");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        timer.innerHTML = "We’re Married!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
