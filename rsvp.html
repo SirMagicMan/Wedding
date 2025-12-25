@@ -4,50 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RSVP — Lukas & Hannah</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Vibur&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>RSVP</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="rsvp.html">RSVP</a>
-    </nav>
-  </header>
+  <div class="container">
 
-  <section class="form-section">
-    <h2>We hope to see you there!</h2>
+    <header>
+      <h1>RSVP</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+      </nav>
+    </header>
 
-    <form name="rsvp" method="POST" data-netlify="true" action="/success">
-  <input type="hidden" name="form-name" value="rsvp">
+    <section class="rsvp">
+      <h3>Please Fill Out the RSVP Form</h3>
+      <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="success.html">
+        <!-- Netlify hidden fields -->
+        <input type="hidden" name="form-name" value="rsvp">
+        <input type="hidden" name="bot-field">
 
-  <label>Your Full Name</label>
-  <input type="text" name="name" required>
+        <label>Your Full Name</label>
+        <input type="text" name="name" placeholder="Your full name" required>
 
-  <label>Will you be attending?</label>
-  <select name="attending" required>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-  </select>
+        <label>Will you be attending?</label>
+        <select name="attending" required>
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
 
-  <label>How many guests (including you)?</label>
-  <input type="number" name="guests" min="0" max="20" required>
+        <label>How many guests (including you)?</label>
+        <input type="number" name="guests" min="0" max="20" placeholder="0" required>
 
-  <label>Meal Preference</label>
-  <select name="meal">
-    <option value="Chicken">Chicken</option>
-    <option value="Beef">Beef</option>
-    <option value="Vegetarian">Vegetarian</option>
-  </select>
+        <label>Meal Preference</label>
+        <select name="meal">
+          <option value="">Select</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Beef">Beef</option>
+          <option value="Vegetarian">Vegetarian</option>
+        </select>
 
-  <label>Notes (allergies, etc.)</label>
-  <textarea name="notes"></textarea>
+        <label>Notes (allergies, etc.)</label>
+        <textarea name="notes" placeholder="Optional"></textarea>
 
-  <button type="submit">Submit RSVP</button>
-</form>
+        <button type="submit" class="btn-submit">Submit RSVP</button>
+      </form>
+    </section>
 
-  </section>
+  </div>
 
 </body>
 </html>
